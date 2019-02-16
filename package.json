@@ -1,0 +1,9 @@
+{
+  "name": "simple_calculator_with_jasmine_tests",
+  "version": "1.0.0",
+  "description": "showcase project",
+  "main": "js/main.js",
+  "repository": "https://github.com/aboutandre/simple_calculator_with_jasmine_tests",
+  "author": "github@aboutandre.com",
+  "license": "MIT"
+}
