@@ -6,20 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Calculator Tests</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="lib/jasmine.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="lib/jasmine.css"> -->
     <script type="text/javascript" src="lib/jasmine.js"></script>
-    <script type="text/javascript" src="lib/jasmine-html.js"></script>
+    <!-- <script type="text/javascript" src="lib/jasmine-html.js"></script> -->
     <script type="text/javascript" src="lib/boot.js"></script>
     <script type="text/javascript" src="js/calculator.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body>
-    <h1>Simple calculator
-    </h1>
-    <input type="text" onchange="calculate(this.value)">
-    <span>Result <strong id="result">x</strong></span>
+<body class="bg-light">
+    <div class="content">
+        <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center text-primary">Simple calculator
+                    </h1>
+                    <div class="d-flex flex-column align-items-center justify-content-center pt-3">
+                        <input class="form-control form-control-lg" type="text" placeholder="e.g.: 1+2" onchange="calculate(this.value)">
+                        <h2 class="pt-3 text-success">Result: <strong id="result">x</strong></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

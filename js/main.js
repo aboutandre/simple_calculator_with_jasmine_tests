@@ -6,8 +6,10 @@ function calculate(inputValue) {
     const numberB = parseInt(numbers[1]);
 
     const operation = inputValue.match(expression);
-
-    if (Number.isNaN(numberA) || Number.isNaN(numberB) || operation === null) {
+    if (inputValue.length === 0) {
+        updateResult('Type some numbers to calculate');
+        return;
+    } else if (Number.isNaN(numberA) || Number.isNaN(numberB) || operation === null) {
         updateResult('Operation not possible');
         return;
     }
