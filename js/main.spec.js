@@ -5,6 +5,7 @@ describe('main.js', function () {
             calculate('a+3');
             expect(window.updateResult).toHaveBeenCalled();
             expect(window.updateResult).toHaveBeenCalledWith('Operation not possible');
+            expect(window.updateResult).toHaveBeenCalledTimes(1);
         });
 
         it('validate expression when the second number is invalid', function () {
@@ -19,6 +20,44 @@ describe('main.js', function () {
             calculate('3_4');
             expect(window.updateResult).toHaveBeenCalled();
             expect(window.updateResult).toHaveBeenCalledWith('Operation not possible');
+        });
+
+        it('calls add', function () {
+            const spy = spyOn(Calculator.prototype, 'add');
+
+            calculate('7+4');
+
+            expect(spy).toHaveBeenCalledTimes(2);
+            expect(spy).toHaveBeenCalledWith(7);
+            expect(spy).toHaveBeenCalledWith(4);
+        });
+
+        it('calls subtract', function () {
+            const spy = spyOn(Calculator.prototype, 'subtract');
+
+            calculate('7-4');
+
+            expect(spy).toHaveBeenCalled();
+            expect(spy).toHaveBeenCalledTimes(1);
+            expect(spy).toHaveBeenCalledWith(4);
+        });
+
+        it('calls multiply', function () {
+            const spy = spyOn(Calculator.prototype, 'multiply');
+
+            calculate('7*4');
+
+            expect(spy).toHaveBeenCalled();
+            expect(spy).toHaveBeenCalledWith(4);
+        });
+
+        it('calls divide', function () {
+            const spy = spyOn(Calculator.prototype, 'divide');
+
+            calculate('8/2');
+
+            expect(spy).toHaveBeenCalled();
+            expect(spy).toHaveBeenCalledWith(2);
         });
 
         describe('updateResult()', function () {
