@@ -21,8 +21,6 @@ describe('main.js', function () {
             expect(window.updateResult).toHaveBeenCalledWith('Operation not possible');
         });
 
-    });
-
     describe('updateResult()', function () {
         beforeAll(function () {
             element = document.createElement('div');
