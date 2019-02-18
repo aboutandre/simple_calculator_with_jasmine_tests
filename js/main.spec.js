@@ -21,20 +21,21 @@ describe('main.js', function () {
             expect(window.updateResult).toHaveBeenCalledWith('Operation not possible');
         });
 
-    describe('updateResult()', function () {
-        beforeAll(function () {
-            element = document.createElement('div');
-            element.setAttribute('id', 'result');
-            document.body.appendChild(element);
-            this.element = element;
-        });
-        afterAll(function () {
-            element = document.getElementById('result');
-            document.body.removeChild(this.element);
-        });
-        it('update result to DOM element', function () {
-            updateResult(5);
-            expect(this.element.innerText).toBe('5');
+        describe('updateResult()', function () {
+            beforeAll(function () {
+                element = document.createElement('div');
+                element.setAttribute('id', 'result');
+                document.body.appendChild(element);
+                this.element = element;
+            });
+            afterAll(function () {
+                element = document.getElementById('result');
+                document.body.removeChild(this.element);
+            });
+            it('update result to DOM element', function () {
+                updateResult(5);
+                expect(this.element.innerText).toBe('5');
+            });
         });
     });
 });
