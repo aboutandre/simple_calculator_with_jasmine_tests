@@ -7,11 +7,9 @@
     <title>Calculator Tests</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="lib/jasmine.css"> -->
-    <script type="text/javascript" src="lib/jasmine.js"></script>
+    <!-- <script type="text/javascript" src="lib/jasmine.js"></script> -->
     <!-- <script type="text/javascript" src="lib/jasmine-html.js"></script> -->
-    <script type="text/javascript" src="lib/boot.js"></script>
-    <script type="text/javascript" src="js/calculator.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <!-- <script type="text/javascript" src="lib/boot.js"></script> -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
@@ -26,10 +24,16 @@
                         <input class="form-control form-control-lg" type="text" placeholder="e.g.: 1+2" onchange="calculate(this.value)">
                         <h2 class="pt-3 text-success">Result: <strong id="result">x</strong></h2>
                     </div>
+                    <div class="version pt-3 text-center">Version: <span id="version"></span></div>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="js/calculator.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script>
+        showVersion()
+    </script>
 </body>
 
 </html>

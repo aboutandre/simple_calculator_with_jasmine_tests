@@ -60,6 +60,16 @@ describe('main.js', function () {
             expect(spy).toHaveBeenCalledWith(2);
         });
 
+        it('calls updateResult (example using and.callThrough)', function () {
+            spyOn(window, 'updateResult');
+            spyOn(Calculator.prototype, 'multiply').and.callThrough(); // how to call something native (i.e.: the "real deal")
+
+            calculate('5*5');
+
+            expect(window.updateResult).toHaveBeenCalled();
+            expect(window.updateResult).toHaveBeenCalledWith(25);
+        });
+
         describe('updateResult()', function () {
             beforeAll(function () {
                 element = document.createElement('div');
@@ -74,6 +84,18 @@ describe('main.js', function () {
             it('update result to DOM element', function () {
                 updateResult(5);
                 expect(this.element.innerText).toBe('5');
+            });
+        });
+
+        describe('showVersion()', function () {
+            it('calls the calculator.version', function () {
+                spyOn(document, 'getElementById').and.returnValue({
+                    innerText: null
+                });
+                const spy = spyOnProperty(Calculator.prototype, 'version', 'get');
+                showVersion();
+
+                expect(spy).toHaveBeenCalled();
             });
         });
     });
