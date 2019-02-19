@@ -20,7 +20,14 @@ Calculator.prototype.divide = function (number) {
 
 Object.defineProperty(Calculator.prototype, 'version', {
     get: function () {
-        return '0.1';
+        return fetch('https://gist.githubusercontent.com/aboutandre/c000989b9d658f8467e898dfa0f933fd/raw/8103026ca1547b85d4eea97dbde0f8dac83ca7b9/simple-calculator.json')
+            .then(function (result) {
+                return result.json();
+            })
+            .then(function (json) {
+                console.log('This is the version', json.version);
+                return json.version;
+            });
     },
     enumerable: true,
     configurable: true

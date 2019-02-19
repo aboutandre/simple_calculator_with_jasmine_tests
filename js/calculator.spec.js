@@ -60,4 +60,16 @@
          expect(calculator.total).toMatch(/-?\d+/);
          expect(typeof calculator.total).toMatch('number');
      });
- })
+
+     describe('get version', function() {
+        it('fetches version from external source', async function(done) {
+            spyOn(window, 'fetch').and.returnValue(Promise.resolve(
+                new Response('{"version": "0.0.1"}')
+            ));
+            const version = await calculator.version;
+                expect(version).toBe('0.0.1');
+
+                done();
+            });
+     });
+ });
