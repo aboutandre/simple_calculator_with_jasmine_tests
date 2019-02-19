@@ -1,9 +1,9 @@
  describe('calculator.js', function () {
      let calculator;
      let calculator2;
-     beforeEach(function() {
-        calculator = new Calculator();
-        calculator2 = new Calculator()
+     beforeEach(function () {
+         calculator = new Calculator();
+         calculator2 = new Calculator()
      })
      it('should add numbers to the total', function () {
          calculator.add(5);
@@ -61,15 +61,15 @@
          expect(typeof calculator.total).toMatch('number');
      });
 
-     describe('get version', function() {
-        it('fetches version from external source', async function(done) {
-            spyOn(window, 'fetch').and.returnValue(Promise.resolve(
-                new Response('{"version": "0.0.1"}')
-            ));
-            const version = await calculator.version;
-                expect(version).toBe('0.0.1');
-
-                done();
-            });
+     describe('get version', function () {
+         it('fetches version from external source', function (done) {
+             spyOn(window, 'fetch').and.returnValue(Promise.resolve(
+                 new Response('{"version": "0.0.1"}')
+             ));
+             calculator.version.then(function (version) {
+                 expect(version).toBe('0.0.1');
+                 done();
+             });
+         });
      });
  });

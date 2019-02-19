@@ -25,7 +25,6 @@ Object.defineProperty(Calculator.prototype, 'version', {
                 return result.json();
             })
             .then(function (json) {
-                console.log('This is the version', json.version);
                 return json.version;
             });
     },

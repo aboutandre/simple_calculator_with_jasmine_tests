@@ -1,5 +1,12 @@
 describe('main.js', function () {
     describe('calculate()', function () {
+        it('validate if the input field is empty', function () {
+            spyOn(window, 'updateResult');
+            calculate('');
+            expect(window.updateResult).toHaveBeenCalled();
+        });
+
+
         it('validate expression when the first number is invalid', function () {
             spyOn(window, 'updateResult');
             calculate('a+3');
