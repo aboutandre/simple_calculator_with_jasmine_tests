@@ -11,7 +11,7 @@ module.exports = function (config) {
         ],
         plugins: ['karma-jasmine', 'karma-jasmine-matchers', 'karma-chrome-launcher', 'karma-coverage'],
         reporters: ['dots', 'coverage'],
-        browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessNoSandbox'],
+        browsers: ['ChromeHeadless', 'ChromeHeadlessNoSandbox'],
         color: true,
         coverageReporter: {
             dir: 'coverage/',
