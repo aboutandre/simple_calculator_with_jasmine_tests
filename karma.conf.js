@@ -11,7 +11,7 @@ module.exports = function (config) {
         ],
         plugins: ['karma-jasmine', 'karma-jasmine-matchers', 'karma-chrome-launcher', 'karma-coverage'],
         reporters: ['dots', 'coverage'],
-        browsers: ['ChromeHeadless'],
+        browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessNoSandbox'],
         color: true,
         coverageReporter: {
             dir: 'coverage/',
@@ -20,6 +20,12 @@ module.exports = function (config) {
                 subdir: 'html'
             }]
         },
+        customLaunchers: {
+            ChromeHeadlessNoSandbox: {
+              base: 'ChromeHeadless',
+              flags: ['--no-sandbox']
+            }
+          },
         singleRun: true
     });
 };
